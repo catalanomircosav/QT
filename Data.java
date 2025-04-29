@@ -105,7 +105,7 @@ public class Data
 
 	/**
 	 * Restituisce un valore assunto in data in una determinata posizione
-	 * @param exampleIndex   riga da cui prelevare il valore
+	 * @param exampleIndex riga da cui prelevare il valore
 	 * @param attributeIndex colonna da cui prelevare il valore
 	 * @return oggetto che rappresenta un valore del dataset in una determinata posizione
 	 */
@@ -116,7 +116,7 @@ public class Data
 
 	/**
 	 * Restituisce un attributo
-	 * @param Index posizione da cui prelevare l'attributo
+	 * @param index posizione da cui prelevare l'attributo
 	 * @return un {@code Attribute} contenente un attributo
 	 */
 	public Attribute getAttribute(int index) 
