@@ -116,6 +116,7 @@ public class Data
 
 	/**
 	 * Restituisce un attributo
+	 * @param Index posizione da cui prelevare l'attributo
 	 * @return un {@code Attribute} contenente un attributo
 	 */
 	public Attribute getAttribute(int index) 
