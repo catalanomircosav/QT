@@ -2,7 +2,8 @@
  * Classe concreta che modella l'insieme di transazioni
  */
 
-public class Data {
+public class Data 
+{
 
 	/**
 	 * Una matrice di tipo Object dove ogni riga modella una transazioni descritta
@@ -23,7 +24,8 @@ public class Data {
 	/**
 	 * Costruttore che inizializza il dataset e imposta l'insieme degli attributi.
 	 */
-	public Data() {
+	public Data() 
+	{
 		data = new Object[14][5];
 
 		data[0] = new Object[] { "sunny", "hot", "high", "weak", "no" };
@@ -78,7 +80,8 @@ public class Data {
 	 * Restituisce la cardinalità dell'insieme di transazioni
 	 * @return intero contenente la cardinalità dell'insieme di transazioni
 	 */
-	public int getNumberOfExamples() {
+	public int getNumberOfExamples() 
+	{
 		return this.numberOfExamples;
 	}
 
@@ -86,7 +89,8 @@ public class Data {
 	 * Restituisce la cardinalità dell'insieme degli attributi
 	 * @return intero contenente la cardinalità dell'insieme degli attributi
 	 */
-	public int getNumberOfAttributes() {
+	public int getNumberOfAttributes() 
+	{
 		return this.attributeSet.length;
 	}
 
@@ -94,7 +98,8 @@ public class Data {
 	 * Restituisce lo schema dei dati
 	 * @return array di Attribute contenente lo schema dei dati
 	 */
-	public Attribute[] getAttributeSchema() {
+	public Attribute[] getAttributeSchema() 
+	{
 		return this.attributeSet;
 	}
 
@@ -105,7 +110,8 @@ public class Data {
 	 * @return oggetto contenente un valore assunto in data in una determinata
 	 *         posizione
 	 */
-	public Object getValue(int exampleIndex, int attributeIndex) {
+	public Object getValue(int exampleIndex, int attributeIndex) 
+	{
 		return this.data[exampleIndex][attributeIndex];
 	}
 
@@ -113,7 +119,8 @@ public class Data {
 	 * Restituisce un attributo
 	 * @return un Attribute contenente un attributo
 	 */
-	public Attribute getAttribute(int index) {
+	public Attribute getAttribute(int index) 
+	{
 		return this.attributeSet[index];
 	}
 
@@ -121,17 +128,21 @@ public class Data {
 	 * Restituisce una stringa che modella lo stato dell'oggetto
 	 * @return una stringa di contenente i dati enumerati
 	 */
-	public String toString() {
+	@Override
+	public String toString() 
+	{
 		StringBuilder sb = new StringBuilder();
 
-		for (int i = 0; i < attributeSet.length; i++) {
+		for (int i = 0; i < attributeSet.length; i++) 
+		{
 			sb.append(attributeSet[i].getName());
 			if (i < attributeSet.length - 1)
 				sb.append(",");
 		}
 		sb.append("\n");
 
-		for (int i = 0; i < numberOfExamples; i++) {
+		for (int i = 0; i < numberOfExamples; i++) 
+		{
 			sb.append((i + 1)).append(":");
 			for (int j = 0; j < attributeSet.length; j++)
 				sb.append(data[i][j]).append(",");
