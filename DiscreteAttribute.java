@@ -13,16 +13,14 @@ public class DiscreteAttribute extends Attribute
      * inizializza i membri aggiunti per estensione.
      * @param name nome dell'attributo
      * @param index identificativo numerico dell'attributo
-     * @param values valori assunti dall'attributo
+     * @param values valori che l'attributo deve assumere
      * @throws IllegalArgumentException se i parametri non sono validi.
      */
     public DiscreteAttribute(String name, int index, String[] values) {
-        super(name, index); // chiama il costruttore della superclasse Attribute
+        super(name, index);
         if(values == null || values.length == 0)
             throw new IllegalArgumentException("Parametri non validi. I valori non possono essere null o vuoti.");
-        
-        this.values = values; // inizializza il dominio
-
+        this.values = values;
     }
 
     /**
