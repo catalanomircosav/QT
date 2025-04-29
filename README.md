@@ -1,2 +1,4 @@
 # QT
-Progetto di Gruppo per Metodi Avanzati di Programmazione A.A. 2024-2025
+___
+
+Repository per il **progetto di gruppo** di *Metodi Avanzati di Programmazione*, A.A. 2024-2025.
