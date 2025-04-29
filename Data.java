@@ -1,12 +1,10 @@
 /**
  * Classe concreta che modella l'insieme di transazioni
  */
+public class Data {
 
-public class Data 
-{
-
-	/**
-	 * Una matrice di tipo Object dove ogni riga modella una transazioni descritta
+    /**
+	 * Una matrice di tipo Object dove ogni riga modella una transazione descritta
 	 * dagli attributi riportati sulle colonne
 	 */
 	private Object data[][];
@@ -20,13 +18,12 @@ public class Data
 	 * Insieme di possibili attributi
 	 */
 	private Attribute attributeSet[];
-
+	
 	/**
 	 * Costruttore che inizializza il dataset e imposta l'insieme degli attributi.
 	 */
-	public Data() 
-	{
-		data = new Object[14][5];
+    public Data() {
+        data = new Object[14][5];
 
 		data[0] = new Object[] { "sunny", "hot", "high", "weak", "no" };
 		data[1] = new Object[] { "sunny", "hot", "high", "strong", "no" };
@@ -73,63 +70,53 @@ public class Data
 		playtennisValues[0] = "yes";
 		playtennisValues[1] = "no";
 		attributeSet[4] = new DiscreteAttribute("Play tennis", 4, playtennisValues);
-
-	}
+    }
 
 	/**
 	 * Restituisce la cardinalità dell'insieme di transazioni
 	 * @return intero contenente la cardinalità dell'insieme di transazioni
 	 */
-	public int getNumberOfExamples() 
-	{
-		return this.numberOfExamples;
-	}
+    public int getNumberOfExamples() {
+        return this.numberOfExamples;
+    }
 
 	/**
 	 * Restituisce la cardinalità dell'insieme degli attributi
 	 * @return intero contenente la cardinalità dell'insieme degli attributi
 	 */
-	public int getNumberOfAttributes() 
-	{
-		return this.attributeSet.length;
-	}
+    public int getNumberOfAttributes() {
+        return this.attributeSet.length;
+    }
 
 	/**
 	 * Restituisce lo schema dei dati
 	 * @return array di Attribute contenente lo schema dei dati
 	 */
-	public Attribute[] getAttributeSchema() 
-	{
-		return this.attributeSet;
-	}
+    public Attribute[] getAttributeSchema() {
+        return this.attributeSet;
+    }
 
-	/**
-	 * Restituisce un valore assunto in data in una determinata posizione
-	 * @param exampleIndex riga da cui prelevare il valore
-	 * @param attributeIndex colonna da cui prelevare il valore
-	 * @return oggetto che rappresenta un valore del dataset in una determinata posizione
-	 */
-	public Object getValue(int exampleIndex, int attributeIndex) 
-	{
-		return this.data[exampleIndex][attributeIndex];
-	}
+    /**
+     * Restituisce un valore assunto in data in una determinata posizione
+     * @param exampleIndex riga da cui prelevare il valore
+     * @param attributeIndex colonna da cui prelevare il valore
+     * @return oggetto che rappresenta un valore del dataset in una determinata posizione
+     */
+    public Object getValue(int exampleIndex, int attributeIndex) {
+        return this.data[exampleIndex][attributeIndex];
+    }
 
-	/**
-	 * Restituisce un attributo
-	 * @param index posizione da cui prelevare l'attributo
-	 * @return un {@code Attribute} contenente un attributo
-	 */
-	public Attribute getAttribute(int index) 
-	{
-		return this.attributeSet[index];
-	}
+    /**
+     * Restituisce un attributo
+     * @param index posizione da cui prelevare l'attributo
+     * @return un {@code Attribute} contenente l'attributo
+     */
+    public Attribute getAttribute(int index) {
+        return this.attributeSet[index];
+    }
 
-	/**
-	 * Restituisce una stringa che modella lo stato dell'oggetto
-	 * @return una stringa di contenente i dati enumerati
-	 */
-	@Override
-	public String toString() 
+    @Override
+    public String toString() 
 	{
 		StringBuilder sb = new StringBuilder();
 
@@ -152,10 +139,8 @@ public class Data
 		return sb.toString();
 	}
 
-	public static void main(String args[]) 
-	{
-		Data trainingSet = new Data();
-		System.out.println(trainingSet);
-	}
-
+    public static void main(String args[]) {
+        Data trainingSet = new Data();
+        System.out.println(trainingSet);
+    }
 }
