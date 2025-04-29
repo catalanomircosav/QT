@@ -24,10 +24,7 @@
 	  * Costruttore che inizializza il dataset e imposta l'insieme degli attributi.
 	  */
 	 public Data()
-	 {
-		 
-		 //data
-		 
+	 {	 
 		 data = new Object [14][5];
  
 		 data[0] = new Object[]{"sunny", "hot", "high", "weak", "no"};
@@ -44,13 +41,8 @@
 		 data[11] = new Object[]{"overcast", "mild", "high", "strong", "yes"};
 		 data[12] = new Object[]{"overcast", "hot", "normal", "weak", "yes"};
 		 data[13] = new Object[]{"rain", "mild", "high", "strong", "no"};
- 
-		 // numberOfExamples
 		 
-		  numberOfExamples=14;		 
-		  
-		 
-		 //explanatory Set
+		 numberOfExamples=14;		 
 		 
 		 attributeSet = new Attribute[5];
 		 
@@ -138,7 +130,6 @@
 	 {
 		 StringBuilder sb = new StringBuilder();
  
-		 // Intestazione
 		 for (int i = 0; i < attributeSet.length; i++)
 		 {
 			 sb.append(attributeSet[i].getName());
@@ -146,8 +137,7 @@
 				 sb.append(",");
 		 }
 		 sb.append("\n");
- 
-		 // Dati
+
 		 for (int i = 0; i < numberOfExamples; i++) 
 		 {
 			 sb.append((i + 1)).append(":");
