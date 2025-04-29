@@ -1,8 +1,9 @@
 /**
  * Classe concreta che modella l'insieme di transazioni
  */
-public class Data
+public class Data 
 {
+
     /**
      * Una matrice di tipo Object dove ogni riga modella una transazione descritta
      * dagli attributi riportati sulle colonne
@@ -22,7 +23,7 @@ public class Data
     /**
      * Costruttore che inizializza il dataset e imposta l'insieme degli attributi.
      */
-    public Data()
+    public Data() 
     {
         data = new Object[14][5];
 
@@ -77,7 +78,7 @@ public class Data
      * Restituisce la cardinalità dell'insieme di transazioni
      * @return intero contenente la cardinalità dell'insieme di transazioni
      */
-    public int getNumberOfExamples()
+    public int getNumberOfExamples() 
     {
         return this.numberOfExamples;
     }
@@ -86,7 +87,7 @@ public class Data
      * Restituisce la cardinalità dell'insieme degli attributi
      * @return intero contenente la cardinalità dell'insieme degli attributi
      */
-    public int getNumberOfAttributes()
+    public int getNumberOfAttributes() 
     {
         return this.attributeSet.length;
     }
@@ -95,7 +96,7 @@ public class Data
      * Restituisce lo schema dei dati
      * @return array di Attribute contenente lo schema dei dati
      */
-    public Attribute[] getAttributeSchema()
+    public Attribute[] getAttributeSchema() 
     {
         return this.attributeSet;
     }
@@ -106,7 +107,7 @@ public class Data
      * @param attributeIndex colonna da cui prelevare il valore
      * @return oggetto che rappresenta un valore del dataset in una determinata posizione
      */
-    public Object getValue(int exampleIndex, int attributeIndex)
+    public Object getValue(int exampleIndex, int attributeIndex) 
     {
         return this.data[exampleIndex][attributeIndex];
     }
@@ -116,24 +117,26 @@ public class Data
      * @param index posizione da cui prelevare l'attributo
      * @return un {@code Attribute} contenente l'attributo
      */
-    public Attribute getAttribute(int index)
+    public Attribute getAttribute(int index) 
     {
         return this.attributeSet[index];
     }
 
     @Override
-    public String toString()
+    public String toString() 
     {
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < attributeSet.length; i++) {
+        for (int i = 0; i < attributeSet.length; i++) 
+        {
             sb.append(attributeSet[i].getName());
             if (i < attributeSet.length - 1)
                 sb.append(",");
         }
         sb.append("\n");
 
-        for (int i = 0; i < numberOfExamples; i++) {
+        for (int i = 0; i < numberOfExamples; i++) 
+        {
             sb.append((i + 1)).append(":");
             for (int j = 0; j < attributeSet.length; j++)
                 sb.append(data[i][j]).append(",");
@@ -143,7 +146,7 @@ public class Data
         return sb.toString();
     }
 
-    public static void main(String[] args)
+    public static void main(String args[]) 
     {
         Data trainingSet = new Data();
         System.out.println(trainingSet);
