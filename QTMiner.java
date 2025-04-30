@@ -1,7 +1,8 @@
 /**
  * Classe concreta che ha lo scopo di implementare l'algoritmo QT (Quality Threshold) per il clustering di dati
  */
-public class QTMiner {
+public class QTMiner 
+{
 
     /**
     * Array di cluster
@@ -17,7 +18,8 @@ public class QTMiner {
     * Costruttore che inizializza l'array di cluster e imposta il radius
     * @param radius intero che rappresenta il raggio massimo di distanza
     */
-    public QTMiner(double radius) {
+    public QTMiner(double radius) 
+    {
         this.C = new ClusterSet();
         this.radius = radius;
     }
@@ -25,7 +27,8 @@ public class QTMiner {
     /**
     * Restituisce l'array di Cluster
     */
-    public ClusterSet getC() {
+    public ClusterSet getC() 
+    {
         return this.C;
     }
 
@@ -62,7 +65,8 @@ public class QTMiner {
     * @param isClustered informazione booleana sullo stato di clusterizzazione di una tupla
     * @return restituisce il cluster candidato più popoloso 
     */
-    public Cluster buildCandidateCluster(Data data, boolean isClustered[]) {
+    public Cluster buildCandidateCluster(Data data, boolean isClustered[]) 
+    {
         Cluster bestCluster = null;
         int maxSize = 0;
 
@@ -86,7 +90,8 @@ public class QTMiner {
                     }
                 }
 
-                if (currentCluster.getSize() > maxSize) {
+                if (currentCluster.getSize() > maxSize) 
+                {
                     maxSize = currentCluster.getSize();
                     bestCluster = currentCluster;
                 }
