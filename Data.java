@@ -159,7 +159,7 @@ public class Data
             tuple.add(new DiscreteItem(attributeSet[i],(String)data[index][i]),i); 
 
         return tuple; 
-       } 
+    } 
     
     public static void main(String args[]) 
     {
