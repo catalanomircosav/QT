@@ -47,7 +47,7 @@ public class Tuple {
      */
     public void add(Item c, int i) 
     {
-        if (i < 0 || i >= tuple.getLength() )
+        if (i < 0 || i >= tuple.getLength())
             throw new IllegalArgumentException("Parametri non validi.");
         tuple[i] = c;
     }
@@ -64,7 +64,7 @@ public class Tuple {
 
         double distanza = 0;
 
-        for (int i = 0 ; i < this.tuple.length; i++)
+        for (int i = 0; i < this.tuple.length; i++)
             distanza += this.tuple[i].distance(obj.tuple[i])
         
         return distanza;
@@ -73,7 +73,7 @@ public class Tuple {
     /**
      * restituisce la media delle distanze tra la tupla corrente e quelle ottenibili dalle righe della matrice in data aventi indice  in clusteredData.
      * @param data {@code Data} da cui prelevare le tuple da confrontare
-     * @param clusteredData intero che rappresenta l'indice delle tuple in data
+     * @param clusteredData array di interi che rappresenta l'indice delle tuple in data
      * @return numero double che rappresenta la distanza media tra le tuple
      */
     public double avgDistance(Data data, int[] clusteredData)
