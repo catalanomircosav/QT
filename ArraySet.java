@@ -27,13 +27,13 @@ public class ArraySet
 	public ArraySet() 
 	{
 		set = new boolean[50];
+        
 		for (int i = 0; i < set.length; i++)
 			set[i] = false;
 	}
 
 	/**
 	 * Aggiunge un intero i all'array booleano se non presente
-	 * 
 	 * @param i intero da aggiungere dall'array booleano
 	 * @return booleano che indica true se l'aggiunta è avvenuta altrimenti false
 	 */
@@ -52,6 +52,7 @@ public class ArraySet
 
 		if (i >= size)
 			size = i + 1;
+        
 		if (!added)
 			cardinality++;
 
@@ -60,27 +61,29 @@ public class ArraySet
 
 	/**
 	 * Elimina se presente l'intero i dall'array booleano e aggiorna il size
-	 * 
 	 * @param i intero da eliminare dall'array booleano
-	 * @return booleano che indica true se l'eliminazione è avvenuta altrimenti
-	 *         false
+	 * @return booleano che indica {@code true} se l'eliminazione è avvenuta altrimenti {@code false}
 	 */
-	public boolean delete(int i) 
-	{
-		if (i < size) 
-		{
+	public boolean delete(int i)
+    {
+		if (i < size)
+        {
 			boolean deleted = set[i];
 			set[i] = false;
-			if (i == size - 1) 
-			{
+			
+            if (i == size - 1)
+            {
 				int j; 
 				for (j = size - 1; j >= 0 && !set[j]; j--);
-				size = j + 1;
+				
+                size = j + 1;
 			}
 			if (deleted)
 				cardinality--;
-			return deleted;
+			
+            return deleted;
 		}
+
 		return false;
 	}
 
@@ -89,10 +92,11 @@ public class ArraySet
 	 * 
 	 * @return valore booleano presente nell'array
 	 */
-	public boolean get(int i) 
-	{
+	public boolean get(int i)
+    {
 		if (i < size)
 			throw new IllegalArgumentException("Parametro non valido.");
+
 		return set[i];
 	}
 
@@ -101,8 +105,8 @@ public class ArraySet
 	 * 
 	 * @return intero che rappresenta la cardinalita' dell'array booleano
 	 */
-	public int size() 
-	{
+	public int size()
+    {
 		return cardinality;
 	}
 
@@ -111,19 +115,20 @@ public class ArraySet
 	 * 
 	 * @return array di interi con i valori dell'array booleano
 	 */
-	int[] toArray() 
-	{
+	int[] toArray()
+    {
 		int[] a = new int[0];
-		for (int i = 0; i < size; i++) 
-		{
-			if (get(i)) 
-			{
+		for (int i = 0; i < size; i++)
+        {
+			if (get(i)) {
 				int[] temp = new int[a.length + 1];
-				System.arraycopy(a, 0, temp, 0, a.length);
-				a = temp;
+				
+                System.arraycopy(a, 0, temp, 0, a.length);
+                a = temp;
 				a[a.length - 1] = i;
 			}
 		}
+
 		return a;
 	}
 }
