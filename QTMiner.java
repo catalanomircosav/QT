@@ -76,7 +76,7 @@ public class QTMiner
             {
                 Tuple centroid = data.getItemSet(i);
                 Cluster currentCluster = new Cluster(centroid);
-                currentCluster.add(i);
+                currentCluster.addData(i);
 
                 for (int j = 0; j < data.getNumberOfExamples(); j++) 
                 {
@@ -85,7 +85,7 @@ public class QTMiner
                         Tuple other = data.getItemSet(j);
                         double distance = centroid.getDistance(other);
                         if (distance <= radius) 
-                            currentCluster.add(j);
+                            currentCluster.addData(j);
                     }
                 }
 
@@ -96,5 +96,7 @@ public class QTMiner
                 }
             }
         }
+
+        return bestCluster;
     }
 }
