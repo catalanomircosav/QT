@@ -59,15 +59,13 @@ public class Tuple {
      */
     public double getDistance(Tuple obj)
     {
-        if ( obj == null || obj.tuple.length != this.tuple.length)
+        if (obj == null || obj.tuple.length != this.tuple.length)
             throw new IllegalArgumentException("Tuple con lunghezza diversa");
 
         double distanza = 0;
 
-        for ( int i = 0 ; i < this.tuple.length; i++)
-        {
+        for (int i = 0 ; i < this.tuple.length; i++)
             distanza += this.tuple[i].distance(obj.tuple[i])
-        }
         
         return distanza;
     }
@@ -78,18 +76,17 @@ public class Tuple {
      * @param clusteredData intero che rappresenta l'indice delle tuple in data
      * @return numero double che rappresenta la distanza media tra le tuple
      */
-    public double avgDistance(Data data, int clusteredData[])
+    public double avgDistance(Data data, int[] clusteredData)
     { 
-        double p=0.0,sumD=0.0; 
+        double p = 0.0, sumD = 0.0; 
 
-        for ( int i = 0; i < clusteredData.length; i++ )
+        for (int i = 0; i < clusteredData.length; i++)
         { 
             double d = getDistance(data.getItemSet(clusteredData[i])); 
             sumD += d; 
         } 
 
-        p=sumD/clusteredData.length; 
-
+        p = sumD / clusteredData.length; 
         return p; 
     } 
 
