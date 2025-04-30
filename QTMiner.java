@@ -6,12 +6,12 @@ public class QTMiner {
     /**
     * Array di cluster
     */
-    ClusterSet C;
+    private ClusterSet C;
 
     /**
     * Raggio massimo di distanza
     */
-    double radius
+    private double radius
 
     /**
     * Costruttore che inizializza l'array di cluster e imposta il radius
