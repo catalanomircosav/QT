@@ -94,15 +94,14 @@ public class ArraySet
 	 */
 	public boolean get(int i)
     {
-		if (i < size)
-			throw new IllegalArgumentException("Parametro non valido.");
+		if (i < 0 || i >= set.length)
+    		throw new IllegalArgumentException("Parametro non valido.");
 
 		return set[i];
 	}
 
 	/**
 	 * Restituisce la cardinalita' dell'array booleano
-	 * 
 	 * @return intero che rappresenta la cardinalita' dell'array booleano
 	 */
 	public int size()
@@ -112,10 +111,9 @@ public class ArraySet
 
 	/**
 	 * Crea un array di interi con i valori presenti nell'array booleano
-	 * 
 	 * @return array di interi con i valori dell'array booleano
 	 */
-	int[] toArray()
+	public int[] toArray()
     {
 		int[] a = new int[0];
 		for (int i = 0; i < size; i++)
@@ -128,7 +126,6 @@ public class ArraySet
 				a[a.length - 1] = i;
 			}
 		}
-
 		return a;
 	}
 }

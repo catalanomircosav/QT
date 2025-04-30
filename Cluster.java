@@ -28,7 +28,7 @@ public class Cluster {
      * Restituisce il centroide di questo cluster.
      * @return la {@link Tuple} che rappresenta il centroide
      */
-    Tuple getCentroid()
+    public Tuple getCentroid()
     {
         return centroid;
     }
@@ -38,7 +38,7 @@ public class Cluster {
      * @param id l'identificatore (intero) della tupla da aggiungere
      * @return {@code true} se l'aggiunta ha modificato l'insieme, {@code false} altrimenti
      */
-    boolean addData(int id)
+    public boolean addData(int id)
     {
         return clusteredData.add(id);
     }
@@ -76,7 +76,7 @@ public class Cluster {
      * assegnate a questo cluster.
      * @return array di {@code int} con gli ID delle tuple clusterizzate
      */
-    int[] iterator()
+    public int[] iterator()
     {
         return clusteredData.toArray();
     }
@@ -106,7 +106,6 @@ public class Cluster {
      * Restituisce una descrizione dettagliata del cluster, comprensiva del centroide,
      * degli esempi (tuple) assegnate con le loro distanze dal centroide, e della
      * distanza media.
-     *
      * @param data l'oggetto {@link Data} da cui recuperare i valori delle tuple
      * @return stringa formattata con centroide, esempi e distanza media
      */

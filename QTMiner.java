@@ -29,7 +29,7 @@ public class QTMiner
     */
     public ClusterSet getC() 
     {
-        return this.C;
+        return C;
     }
 
     /**
@@ -41,19 +41,22 @@ public class QTMiner
     {
         int numclusters = 0;
         boolean[] isClustered = new boolean[data.getNumberOfExamples()];
+
         for (int i = 0; i < isClustered.length; i++)
             isClustered[i] = false;
 
         int countClustered = 0;
-        while (countClustered!=data.getNumberOfExamples())
+        while (countClustered != data.getNumberOfExamples())
         {
             Cluster c = buildCandidateCluster(data, isClustered);
             C.add(c);
+
             numclusters++;
 
             int[] clusteredTupleId = c.iterator();
             for(int i = 0; i < clusteredTupleId.length; i++)
                 isClustered[clusteredTupleId[i]] = true;
+
             countClustered += c.getSize();
         }
         return numclusters;
@@ -72,7 +75,7 @@ public class QTMiner
 
         for (int i = 0; i < data.getNumberOfExamples(); i++) 
         {
-            if (isClustered[i] = false) 
+            if (!isClustered[i])
             {
                 Tuple centroid = data.getItemSet(i);
                 Cluster currentCluster = new Cluster(centroid);
