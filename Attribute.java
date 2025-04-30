@@ -1,9 +1,8 @@
 /**
  * Classe astratta che modella un attributo caratterizzato da nome e identificativo numerico.
  */
-public abstract class Attribute {
-    // ! verificare se i campi devono cambiare: in tal caso, togliere la  keyword final
-    
+public abstract class Attribute
+{
     /**
      * Nome dell'attributo
      */
@@ -20,7 +19,8 @@ public abstract class Attribute {
      * @param index identificativo numerico dell'attributo
      * @throws IllegalArgumentException se i parametri non sono validi
      */
-    protected Attribute(String name, int index) {
+    protected Attribute(String name, int index) 
+    {
         if(name == null || name.isEmpty() || index < 0)
             throw new IllegalArgumentException("Parametri non validi.");
 
@@ -32,7 +32,8 @@ public abstract class Attribute {
      * Restituisce il nome dell'attributo.
      * @return stringa contenente il nome dell'attributo
      */
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
@@ -40,7 +41,8 @@ public abstract class Attribute {
      * Restituisce l'identificativo numerico dell'attributo.
      * @return numero intero rappresentante l'identificativo
      */
-    public int getIndex() {
+    public int getIndex()
+    {
         return index;
     }
 
@@ -49,7 +51,8 @@ public abstract class Attribute {
      * @return stringa contenente il nome dell'attributo
      */
     @Override
-    public String toString() {
+    public String toString()
+    {
         return name;
     }
 }

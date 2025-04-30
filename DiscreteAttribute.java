@@ -34,6 +34,7 @@ public class DiscreteAttribute extends Attribute
 
     /**
      * Restituisce i valori presenti nell'attributo
+     * @param i indicativo numerico dell'attributo
      * @return stringa contenente i valori presenti nell'attributo.
      */
     public String getValue(int i) 
