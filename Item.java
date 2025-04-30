@@ -23,7 +23,7 @@ public abstract class Item
      * @return La distanza tra l'oggetto corrente e l'oggetto passato come parametro.
      * @throws IllegalArgumentException se l'oggetto passato come parametro non è valido o compatibile con l'item.
      */
-    public abstract double distance(Object a);
+    protected abstract double distance(Object a);
 
     /**
      * Costruttore che inizializza un item con un attributo e un valore specificato.
@@ -34,7 +34,7 @@ public abstract class Item
      * @param value Il valore da associare all'item.
      * @throws NullPointerException se uno dei parametri è nullo.
      */
-    public Item(Attribute attribute, Object value)
+    protected Item(Attribute attribute, Object value)
     {
         if (attribute == null || value == null)
             throw new NullPointerException("L'attributo e il valore non possono essere nulli.");
