@@ -89,7 +89,7 @@ public class ArraySet
 
 	/**
 	 * Restituisce un valore dell'array booleano
-	 * 
+	 * @param i intero che rappresenta l'indice dell'array da restituire 
 	 * @return valore booleano presente nell'array
 	 */
 	public boolean get(int i)
