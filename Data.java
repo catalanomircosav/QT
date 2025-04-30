@@ -146,6 +146,21 @@ public class Data
         return sb.toString();
     }
 
+    /**
+     * Crea e restituisce un oggetto di Tuple che modella come sequenza di  coppie Attributo-valore la i-esima riga in data. 
+     * @param index intero che corrisponde alla riga del dataset
+     * @return oggetto {@code Tuple} con un coppia modellata
+     */
+    public Tuple getItemSet(int index)
+    { 
+        Tuple tuple = new Tuple(attributeSet.length); 
+
+        for (int i = 0; i < attributeSet.length; i++)
+            tuple.add(new DiscreteItem(attributeSet[i],(String)data[index][i]),i); 
+
+        return tuple; 
+    } 
+    
     public static void main(String args[]) 
     {
         Data trainingSet = new Data();
