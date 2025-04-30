@@ -1,9 +1,11 @@
 /**
- * Classe concreta che estende la classe {@code Attribute} e modella un attributo numerico continuo.
+ * Classe concreta che estende la classe {@link Attribute} e modella un attributo numerico continuo.
  * La classe include metodi per "scalare" l'attributo dal dominio dell'attributo all'intervallo [0,1]
  * al fine da rendere confrontabili attributi aventi domini diversi.
+ * @see Attribute
  */
-public class ContinuousAttribute extends Attribute {
+public class ContinuousAttribute extends Attribute
+{
 
     /**
      * Valore massimo del nuovo dominio

@@ -1,5 +1,6 @@
 /**
- * Classe concreta che estende la classe {@code Attribute} e modella un attributo con un dominio finito di valori.
+ * Classe concreta che estende la classe {@link Attribute} e modella un attributo con un dominio finito di valori.
+ * @see Attribute
  */
 public class DiscreteAttribute extends Attribute
 {
@@ -16,7 +17,8 @@ public class DiscreteAttribute extends Attribute
      * @param values valori che l'attributo deve assumere
      * @throws IllegalArgumentException se i parametri non sono validi.
      */
-    public DiscreteAttribute(String name, int index, String[] values) {
+    public DiscreteAttribute(String name, int index, String[] values)
+    {
         super(name, index);
         if(values == null || values.length == 0)
             throw new IllegalArgumentException("Parametri non validi. I valori non possono essere null o vuoti.");
