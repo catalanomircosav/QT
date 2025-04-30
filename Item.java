@@ -36,9 +36,8 @@ public abstract class Item
      */
     public Item(Attribute attribute, Object value)
     {
-        if (attribute == null || value == null) {
+        if (attribute == null || value == null)
             throw new NullPointerException("L'attributo e il valore non possono essere nulli.");
-        }
 
         this.attribute = attribute;
         this.value = value;
@@ -51,9 +50,9 @@ public abstract class Item
      */
     public Attribute getAttribute()
     {
-        if (attribute == null) {
+        if (attribute == null)
             throw new IllegalStateException("L'attributo non è stato inizializzato.");
-        }
+
         return attribute;
     }
 
@@ -64,9 +63,9 @@ public abstract class Item
      */
     public Object getValue()
     {
-        if (value == null) {
+        if (value == null)
             throw new IllegalStateException("Il valore non è stato inizializzato.");
-        }
+
         return value;
     }
 
