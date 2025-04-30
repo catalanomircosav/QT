@@ -47,7 +47,7 @@ public class Tuple {
      */
     public void add(Item c, int i) 
     {
-        if (i < 0 || i >= tuple.getLength())
+        if (i < 0 || i >= getLength())
             throw new IllegalArgumentException("Parametri non validi.");
         tuple[i] = c;
     }
@@ -65,7 +65,7 @@ public class Tuple {
         double distanza = 0;
 
         for (int i = 0; i < this.tuple.length; i++)
-            distanza += this.tuple[i].distance(obj.tuple[i])
+            distanza += this.tuple[i].distance(obj.tuple[i]);
         
         return distanza;
     }
