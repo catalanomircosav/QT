@@ -12,7 +12,7 @@ public class QTMiner
     /**
     * Raggio massimo di distanza
     */
-    private double radius
+    private double radius;
 
     /**
     * Costruttore che inizializza l'array di cluster e imposta il radius
@@ -40,7 +40,7 @@ public class QTMiner
     public int compute(Data data)
     {
         int numclusters = 0;
-        boolean[] isClustered = new boolean[data.getNumberOfExamples()]
+        boolean[] isClustered = new boolean[data.getNumberOfExamples()];
         for (int i = 0; i < isClustered.length; i++)
             isClustered[i] = false;
 
@@ -74,7 +74,6 @@ public class QTMiner
         {
             if (isClustered[i] = false) 
             {
-                Cluster currentCluster = new Cluster();
                 Tuple centroid = data.getItemSet(i);
                 Cluster currentCluster = new Cluster(centroid);
                 currentCluster.add(i);
@@ -86,7 +85,7 @@ public class QTMiner
                         Tuple other = data.getItemSet(j);
                         double distance = centroid.getDistance(other);
                         if (distance <= radius) 
-                            currentCluster.add(j); // Aggiungi j al cluster
+                            currentCluster.add(j);
                     }
                 }
 
