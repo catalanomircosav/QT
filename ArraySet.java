@@ -65,11 +65,14 @@ public class ArraySet
 	 * @return booleano che indica true se l'eliminazione è avvenuta altrimenti
 	 *         false
 	 */
-	public boolean delete(int i) {
-		if (i < size) {
+	public boolean delete(int i) 
+	{
+		if (i < size) 
+		{
 			boolean deleted = set[i];
 			set[i] = false;
-			if (i == size - 1) {
+			if (i == size - 1) 
+			{
 				int j; 
 				for (j = size - 1; j >= 0 && !set[j]; j--);
 				size = j + 1;
@@ -86,7 +89,8 @@ public class ArraySet
 	 * 
 	 * @return valore booleano presente nell'array
 	 */
-	public boolean get(int i) {
+	public boolean get(int i) 
+	{
 		if (i < size)
 			throw new IllegalArgumentException("Parametro non valido.");
 		return set[i];
@@ -97,7 +101,8 @@ public class ArraySet
 	 * 
 	 * @return intero che rappresenta la cardinalita' dell'array booleano
 	 */
-	public int size() {
+	public int size() 
+	{
 		return cardinality;
 	}
 
@@ -106,10 +111,13 @@ public class ArraySet
 	 * 
 	 * @return array di interi con i valori dell'array booleano
 	 */
-	int[] toArray() {
+	int[] toArray() 
+	{
 		int[] a = new int[0];
-		for (int i = 0; i < size; i++) {
-			if (get(i)) {
+		for (int i = 0; i < size; i++) 
+		{
+			if (get(i)) 
+			{
 				int[] temp = new int[a.length + 1];
 				System.arraycopy(a, 0, temp, 0, a.length);
 				a = temp;
