@@ -43,7 +43,6 @@ public class Tuple {
      * Memorizza l'item c in posizione i della sequenza di coppie
      * @param c {@code Item} da aggiungere alla sequenza di coppie in posizione i
      * @param i numero intero che rappresenta la posizione della sequenza su cui scrivere l'item
-     * @return sequenza di coppie aggiornata con l'item c
      */
     public void add(Item c, int i) 
     {
