@@ -155,7 +155,7 @@ public class Data
     { 
         Tuple tuple = new Tuple(attributeSet.length); 
 
-        for (int i = 0; i < attributeSet.length; i++ )
+        for (int i = 0; i < attributeSet.length; i++)
             tuple.add(new DiscreteItem(attributeSet[i],(String)data[index][i]),i); 
 
         return tuple; 
