@@ -1,6 +1,5 @@
 /**
  * La classe {@link ClusterSet} rappresenta un insieme di cluster.
- * 
  * @see Cluster
  */
 public class ClusterSet {
@@ -22,7 +21,7 @@ public class ClusterSet {
      * Metodo che permette di aggiungere un cluster all'insieme dei cluster
      * @param c cluster da aggiungere
      */
-    void add(Cluster c)
+    public void add(Cluster c)
     {
         Cluster temp[] = new Cluster[C.length + 1];
 
@@ -38,7 +37,7 @@ public class ClusterSet {
      * @param i indice del cluster da restituire
      * @return il cluster all'indice {@code i}
      */
-    Cluster get(int i)
+    public Cluster get(int i)
     {
         return C[i];
     }
@@ -70,9 +69,10 @@ public class ClusterSet {
     {
         StringBuilder str = new StringBuilder();
 
-        for(int i = 0; i < C.length; i++)
+        for(int i = 0; i < C.length; i++) {
             if(C[i] != null)
-                str.append(i).append(": ").append(toString(data)).append("\n");
+            str.append(i).append(": ").append(C[i].toString(data)).append("\n");
+        }
         
         return str.toString();
     }

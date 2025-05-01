@@ -159,11 +159,5 @@ public class Data
             tuple.add(new DiscreteItem((DiscreteAttribute)attributeSet[i],(String)data[index][i]),i); 
 
         return tuple; 
-    } 
-    
-    public static void main(String args[]) 
-    {
-        Data trainingSet = new Data();
-        System.out.println(trainingSet);
     }
 }
