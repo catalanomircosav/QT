@@ -26,6 +26,7 @@ public class QTMiner
 
     /**
     * Restituisce l'array di Cluster
+    * @return l'insieme dei {@code Cluster}
     */
     public ClusterSet getC() 
     {

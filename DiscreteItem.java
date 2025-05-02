@@ -24,12 +24,9 @@ public class DiscreteItem extends Item
 
     /**
      * Calcola la distanza discreta tra questo item e un altro oggetto
-     * @param a 
-     *      l’oggetto con cui confrontare il valore di questo item;
-     * @return
-     *      0.0 se i valori sono uguali, 1.0 altrimenti
-     * @throws IllegalArgumetnException
-     *      se il tipo di {@code obj} non e' lo stesso dell'oggetto corrente
+     * @param obj l’oggetto con cui confrontare il valore di questo item;
+     * @return 0.0 se i valori sono uguali, 1.0 altrimenti
+     * @throws IllegalArgumentException se il tipo di {@code obj} non e' lo stesso dell'oggetto corrente
      */
     @Override
     public double distance(Object obj)
