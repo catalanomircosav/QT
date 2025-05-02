@@ -1,3 +1,6 @@
+import data.Data;
+import mining.QTMiner;
+
 public class MainTest {
 	public static void main(String[] args) {
 		
