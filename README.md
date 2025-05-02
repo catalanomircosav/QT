@@ -17,4 +17,4 @@ ___
 - Sprint 1 (QT1): modellazione e implementazione delle classi principali (`Attribute`, `ContinuousAttribute`, `DiscreteAttribute`, `Data`) e definizione del relativo diagramma UML.
 ___
 
-![Diagramma UML delle classi](./assets/uml_qt1.png)
+![Diagramma UML delle classi](./assets/uml_qt2.png)
