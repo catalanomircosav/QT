@@ -41,8 +41,9 @@ public class QTMiner
     * Costruttore che inizializza l'array di cluster e imposta il radius
     * @param data oggetto di tipo {@code Data} da cui prelevare le tuple
     * @return intero che rappresenta il numero di cluster scoperti 
+    * @throws ClusteringRadiusException 
     */
-    public int compute(Data data)
+    public int compute(Data data) throws ClusteringRadiusException
     {
         int numclusters = 0;
         boolean[] isClustered = new boolean[data.getNumberOfExamples()];
@@ -64,6 +65,8 @@ public class QTMiner
 
             countClustered += c.getSize();
         }
+        if (numclusters == 1)
+            throw new ClusteringRadiusException("Tutte le tuple sono finite nello stesso cluster.");
         return numclusters;
     }
 
