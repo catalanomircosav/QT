@@ -1,4 +1,4 @@
-package mining;
+package exceptions;
 
 /**
  * La classe {@link ClusteringRadiusException} estende la classe Exception e rappresenta l'eccezione che riguarda un unico cluster

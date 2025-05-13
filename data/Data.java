@@ -1,4 +1,5 @@
 package data;
+import exceptions.*;
 
 /**
  * Classe concreta che modella l'insieme di transazioni
@@ -161,5 +162,19 @@ public class Data
             tuple.add(new DiscreteItem((DiscreteAttribute)attributeSet[i],(String)data[index][i]),i); 
 
         return tuple; 
+    }
+
+    /**
+     * Verifica se il dataset è vuoto controllando se non contiene esempi 
+     * ({@code numberOfExamples == 0}) o se il riferimento ai dati è {@code null}.
+     * 
+     * @throws EmptyDatasetException se il dataset è vuoto (non contiene esempi o {@code data} è null),
+     *         con un messaggio che descrive l'errore.
+     * @see EmptyDatasetException
+     */
+    public void checkIfEmpty() throws EmptyDatasetException {
+        if (numberOfExamples == 0 || data == null) {
+            throw new EmptyDatasetException("Il dataset è vuoto. Impossibile eseguire l'operazione.");
+        }
     }
 }

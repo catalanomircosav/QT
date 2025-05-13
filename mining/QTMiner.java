@@ -1,7 +1,7 @@
 package mining;
 import data.Data;
 import data.Tuple;
-
+import exceptions.*;
 /**
  * Classe concreta che ha lo scopo di implementare l'algoritmo QT (Quality Threshold) per il clustering di dati
  */
@@ -41,10 +41,13 @@ public class QTMiner
     * Costruttore che inizializza l'array di cluster e imposta il radius
     * @param data oggetto di tipo {@code Data} da cui prelevare le tuple
     * @return intero che rappresenta il numero di cluster scoperti 
-    * @throws ClusteringRadiusException 
+    * @throws ClusteringRadiusException, EmptyDatasetException
     */
-    public int compute(Data data) throws ClusteringRadiusException
+    public int compute(Data data) throws ClusteringRadiusException, EmptyDatasetException
     {
+        if (data.getNumberOfExamples() == 0)
+            throw new EmptyDatasetException("Dataset vuoto: impossibile eseguire il clustering.");
+    
         int numclusters = 0;
         boolean[] isClustered = new boolean[data.getNumberOfExamples()];
 
