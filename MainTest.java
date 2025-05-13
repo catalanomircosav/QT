@@ -3,7 +3,17 @@ import mining.QTMiner;
 import keyboardinput.*;
 import exceptions.*;
 
+/**
+ * Classe principale per il test del clustering con QT-Miner.
+ * 
+ * Questo programma carica un dataset, consente all'utente di specificare
+ * un raggio per eseguire un algoritmo di clustering (QT-Miner), e ripete
+ * l'operazione fino a quando l'utente decide di terminare.
+ */
 public class MainTest {
+	/**
+	 * Metodo principale che esegue il ciclo di clustering interattivo.
+	 */
     public static void main(String[] args) {
         double radius;
         char risposta = ' ';
