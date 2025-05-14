@@ -18,6 +18,7 @@ ___
 - Sprint 2 (QT2): modellazione e implementazione delle classi per mining (`Cluster`, `ClusterSet`,`QTMiner`,`ArraySet`) e
 aggiornamento del relativo diagramma UML.
 - Sprint 3 (QT3): riorganizzazione del progetto in **package** e gestione dell'interazione con l'utente e aggiornamento del relativo diagramma UML.
+- Sprint 4 (QT4): aggiunta di gestione di eccezioni nei vari package.
 ___
 
-![Diagramma UML delle classi](./assets/uml_qt3.png)
+![Diagramma UML delle classi](./assets/uml_qt4.png)

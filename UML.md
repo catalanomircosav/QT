@@ -134,6 +134,19 @@ class ArraySet {
   + toArray() : int[]
 }
 
+class ClusteringRadiusException {
+  # ClusteringRadiusException(message : String)
+}
+
+class EmptyDatasetException {
+  # EmptyDatasetException()
+  # EmptyDatasetException(msg : String)
+}
+
+class MainTest {
+  + main(args : String[]) : void
+}
+
 Data "1" *-- "many" Attribute : contains
 DiscreteItem "1" *-- "1" DiscreteAttribute : uses
 Item "1" *-- "1" Attribute : has
@@ -148,5 +161,11 @@ Attribute <|-- ContinuousAttribute
 Attribute <|-- DiscreteAttribute
 
 ContinuousItem "1" *-- "1" ContinuousAttribute : uses
+
+Data --> EmptyDatasetException : throws
+QTMiner --> EmptyDatasetException : throws
+QTMiner --> ClusteringRadiusException : throws
+MainTest --> EmptyDatasetException : handles
+MainTest --> ClusteringRadiusException : handles
 
 @enduml
