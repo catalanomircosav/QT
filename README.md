@@ -17,6 +17,7 @@ ___
 - Sprint 1 (QT1): modellazione e implementazione delle classi principali (`Attribute`, `ContinuousAttribute`, `DiscreteAttribute`, `Data`) e definizione del relativo diagramma UML.
 - Sprint 2 (QT2): modellazione e implementazione delle classi per mining (`Cluster`, `ClusterSet`,`QTMiner`,`ArraySet`) e
 aggiornamento del relativo diagramma UML.
+- Sprint 3 (QT3): riorganizzazione del progetto in **package** e gestione dell'interazione con l'utente e aggiornamento del relativo diagramma UML.
 ___
 
-![Diagramma UML delle classi](./assets/uml_qt2.png)
+![Diagramma UML delle classi](./assets/uml_qt3.png)
