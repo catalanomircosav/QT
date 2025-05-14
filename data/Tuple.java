@@ -87,7 +87,6 @@ public class Tuple {
         } 
 
         p = sumD / clusteredData.length; 
-        return p; 
-    } 
-
+        return p;
+    }
 }
