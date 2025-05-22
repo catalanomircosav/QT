@@ -3,17 +3,17 @@ package data;
  * Classe astratta che rappresenta un generico oggetto "@{code Item}" con un attributo e un valore associato.
  * Le classi derivate devono implementare il metodo `distance` per calcolare la distanza tra due oggetti.
  */
-public abstract class Item
+public abstract class Item<T extends Attribute, V>
 {
     /**
      * L'attributo che è associato all'item.
      */
-    protected Attribute attribute;
+    protected T attribute;
 
     /**
      * Il valore assegnato all'attributo dell'item.
      */
-    protected Object value;
+    protected V value;
 
     /**
      * Calcola la distanza tra l'oggetto corrente e un altro oggetto passato come parametro.
@@ -35,7 +35,7 @@ public abstract class Item
      * @param value Il valore da associare all'item.
      * @throws NullPointerException se uno dei parametri è nullo.
      */
-    protected Item(Attribute attribute, Object value)
+    protected Item(T attribute, V value)
     {
         if (attribute == null || value == null)
             throw new NullPointerException("L'attributo e il valore non possono essere nulli.");
@@ -49,7 +49,7 @@ public abstract class Item
      * @return L'attributo dell'item.
      * @throws IllegalStateException se l'attributo non è stato inizializzato correttamente.
      */
-    public Attribute getAttribute()
+    public T getAttribute()
     {
         if (attribute == null)
             throw new IllegalStateException("L'attributo non è stato inizializzato.");
@@ -62,7 +62,7 @@ public abstract class Item
      * @return Il valore dell'item.
      * @throws IllegalStateException se il valore non è stato inizializzato correttamente.
      */
-    public Object getValue()
+    public V getValue()
     {
         if (value == null)
             throw new IllegalStateException("Il valore non è stato inizializzato.");

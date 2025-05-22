@@ -6,7 +6,7 @@ package data;
  * e fornisce una distanza binaria: 0 se i valori sono uguali, 1 altrimenti.
  * @see Item
  */
-public class ContinuousItem extends Item
+public class ContinuousItem extends Item <ContinuousAttribute, Double>
 {
     /**
      * Costruisce un nuovo {@code ContinuousItem} associando l’attributo continuo

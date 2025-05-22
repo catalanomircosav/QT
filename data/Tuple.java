@@ -10,7 +10,7 @@ public class Tuple {
     /**
      * Nome della sequenze di coppie
      */
-    private Item[] tuple;
+    private Item<?, ?>[] tuple;
 
     /**
      * Costruttore che inizializza {@code size} coppie attributo valore
@@ -38,7 +38,7 @@ public class Tuple {
      * @param i numero intero che rappresenta la posizione dell'item da prelevare
      * @return {@code Item} in posizione i
      */
-    public Item get(int i) 
+    public Item<?, ?> get(int i) 
     {
         return tuple[i];
     }
@@ -48,7 +48,7 @@ public class Tuple {
      * @param c {@code Item} da aggiungere alla sequenza di coppie in posizione i
      * @param i numero intero che rappresenta la posizione della sequenza su cui scrivere l'item
      */
-    public void add(Item c, int i) 
+    public void add(Item<?, ?> c, int i) 
     {
         if (i < 0 || i >= getLength())
             throw new IllegalArgumentException("Parametri non validi.");
