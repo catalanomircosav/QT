@@ -1,5 +1,7 @@
 package data;
 import exceptions.*;
+import java.util.List;
+import java.util.LinkedList;
 
 /**
  * Classe concreta che modella l'insieme di transazioni
@@ -21,7 +23,7 @@ public class Data
     /**
      * Insieme di possibili attributi
      */
-    private Attribute attributeSet[];
+    private List<Attribute> attributeSet;
 
     /**
      * Costruttore che inizializza il dataset e imposta l'insieme degli attributi.
@@ -47,34 +49,34 @@ public class Data
 
         numberOfExamples = 14;
 
-        attributeSet = new Attribute[5];
+        attributeSet = new LinkedList<>();
 
         String outLookValues[] = new String[3];
         outLookValues[0] = "overcast";
         outLookValues[1] = "rain";
         outLookValues[2] = "sunny";
-        attributeSet[0] = new DiscreteAttribute("Outlook", 0, outLookValues);
+        attributeSet.add(new DiscreteAttribute("Outlook", 0, outLookValues));
 
         String temperatureValues[] = new String[3];
         temperatureValues[0] = "cool";
         temperatureValues[1] = "hot";
         temperatureValues[2] = "mild";
-        attributeSet[1] = new DiscreteAttribute("Temperature", 1, temperatureValues);
+        attributeSet.add(new DiscreteAttribute("Temperature", 1, temperatureValues));
 
         String humidityValues[] = new String[2];
         humidityValues[0] = "high";
         humidityValues[1] = "normal";
-        attributeSet[2] = new DiscreteAttribute("Humidity", 2, humidityValues);
+        attributeSet.add(new DiscreteAttribute("Humidity", 2, humidityValues));
 
         String windValues[] = new String[2];
         windValues[0] = "weak";
         windValues[1] = "strong";
-        attributeSet[3] = new DiscreteAttribute("Wind", 3, windValues);
+        attributeSet.add(new DiscreteAttribute("Wind", 3, windValues));
 
         String playtennisValues[] = new String[2];
         playtennisValues[0] = "yes";
         playtennisValues[1] = "no";
-        attributeSet[4] = new DiscreteAttribute("Play tennis", 4, playtennisValues);
+        attributeSet.add(new DiscreteAttribute("Play tennis", 4, playtennisValues));
     }
 
     /**
@@ -92,14 +94,14 @@ public class Data
      */
     public int getNumberOfAttributes() 
     {
-        return this.attributeSet.length;
+        return this.attributeSet.size();
     }
 
     /**
      * Restituisce lo schema dei dati
      * @return array di Attribute contenente lo schema dei dati
      */
-    public Attribute[] getAttributeSchema() 
+    public List<Attribute> getAttributeSchema() 
     {
         return this.attributeSet;
     }
@@ -122,7 +124,7 @@ public class Data
      */
     Attribute getAttribute(int index) 
     {
-        return this.attributeSet[index];
+        return this.attributeSet.get(index);
     }
 
     @Override
@@ -130,10 +132,10 @@ public class Data
     {
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < attributeSet.length; i++) 
+        for (int i = 0; i < attributeSet.size(); i++) 
         {
-            sb.append(attributeSet[i].getName());
-            if (i < attributeSet.length - 1)
+            sb.append(attributeSet.get(i).getName());
+            if (i < attributeSet.size() - 1)
                 sb.append(",");
         }
         sb.append("\n");
@@ -141,7 +143,7 @@ public class Data
         for (int i = 0; i < numberOfExamples; i++) 
         {
             sb.append((i + 1)).append(":");
-            for (int j = 0; j < attributeSet.length; j++)
+            for (int j = 0; j < attributeSet.size(); j++)
                 sb.append(data[i][j]).append(",");
             sb.append("\n");
         }
@@ -156,10 +158,10 @@ public class Data
      */
     public Tuple getItemSet(int index)
     { 
-        Tuple tuple = new Tuple(attributeSet.length); 
+        Tuple tuple = new Tuple(attributeSet.size()); 
 
-        for (int i = 0; i < attributeSet.length; i++)
-            tuple.add(new DiscreteItem((DiscreteAttribute)attributeSet[i],(String)data[index][i]),i); 
+        for (int i = 0; i < attributeSet.size(); i++)
+            tuple.add(new DiscreteItem((DiscreteAttribute)attributeSet.get(i),(String)data[index][i]),i); 
 
         return tuple; 
     }
@@ -173,8 +175,7 @@ public class Data
      * @see EmptyDatasetException
      */
     public void checkIfEmpty() throws EmptyDatasetException {
-        if (numberOfExamples == 0 || data == null) {
+        if (numberOfExamples == 0 || data == null)
             throw new EmptyDatasetException("Il dataset è vuoto. Impossibile eseguire l'operazione.");
-        }
     }
 }
