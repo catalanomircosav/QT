@@ -62,7 +62,7 @@ public class QTMiner
 
             numclusters++;
 
-            int[] clusteredTupleId = c.iterator();
+            int[] clusteredTupleId = c.toArray();
             for(int i = 0; i < clusteredTupleId.length; i++)
                 isClustered[clusteredTupleId[i]] = true;
 
