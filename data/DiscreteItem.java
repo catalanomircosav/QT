@@ -6,7 +6,7 @@ package data;
  * e fornisce una distanza binaria: 0 se i valori sono uguali, 1 altrimenti.
  * @see Item
  */
-public class DiscreteItem extends Item
+public class DiscreteItem extends Item <DiscreteAttribute, String>
 {
     /**
      * Costruisce un nuovo {@code DiscreteItem} associando l’attributo discreto
