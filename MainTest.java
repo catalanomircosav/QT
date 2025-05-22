@@ -31,9 +31,17 @@ public class MainTest {
                 do {
                     System.out.print("Insert radius (>0): ");
                     radius = Keyboard.readDouble();
+
+                    if (Double.isNaN(radius)) 
+                    {
+                        System.out.println("Error! You must enter a number!");
+                        Keyboard.readString(); // Pulisce il buffer di input
+                    } 
+
                     if (radius <= 0)
                         System.out.println("Error! Radius must be greater than 0!");
-                } while (radius <= 0);
+
+                } while (radius <= 0 || Double.isNaN(radius));
 
                 QTMiner qt = new QTMiner(radius);
                 
