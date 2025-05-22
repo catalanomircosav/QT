@@ -5,7 +5,6 @@ import java.util.Set;
 
 import data.Data;
 import data.Tuple;
-import utility.ArraySet;
 /**
  * Rappresenta un cluster in uno spazio di tuple, definito da un centroide
  * e da un insieme di identificatori di tuple assegnate a questo cluster.
@@ -20,7 +19,7 @@ public class Cluster {
     /**
      * Insieme di identificatori (interi) delle tuple che appartengono a questo cluster.
      */
-    private ArraySet clusteredData;
+    private  Set<Integer> clusteredData;
 
     /**
      * Costruisce un nuovo cluster con il centroide specificato.
@@ -29,7 +28,7 @@ public class Cluster {
     Cluster(Tuple centroid)
     {
         this.centroid = centroid;
-        this.clusteredData = new ArraySet();
+        this.clusteredData = new HashSet<>();
     }
 
     /**
@@ -58,7 +57,7 @@ public class Cluster {
      */
     boolean contain(int id)
     {
-        return clusteredData.get(id);
+        return clusteredData.contains(id);
     }
 
     /**
@@ -67,7 +66,7 @@ public class Cluster {
      */
     void removeTuple(int id)
     {
-        clusteredData.delete(id);
+        clusteredData.remove(id);
     }
 
     /**
@@ -86,7 +85,7 @@ public class Cluster {
      */
     int[] iterator()
     {
-        return clusteredData.toArray();
+        return clusteredData.stream().mapToInt(Integer::intValue).toArray();
     }
 
     /**
@@ -125,7 +124,7 @@ public class Cluster {
             str.append(centroid.get(i)).append("  ");
         str.append(")\nExamples:\n");
         
-        int[] array = clusteredData.toArray();
+        int[] array = clusteredData.stream().mapToInt(Integer::intValue).toArray();
         Set<Tuple> tupleset = new HashSet<>();
 
         for (int i = 0; i < array.length; i++) {

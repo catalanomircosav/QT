@@ -74,7 +74,7 @@ public class Tuple {
     }
 
     /**
-     * restituisce la media delle distanze tra la tupla corrente e quelle ottenibili dalle righe della matrice in data aventi indice  in clusteredData.
+     * restituisce la media delle distanze tra la tupla corrente e quelle ottenibili dalle righe della matrice in data aventi indice in clusteredData.
      * @param data {@code Data} da cui prelevare le tuple da confrontare
      * @param clusteredData {@code Set<Tuple>} che rappresenta gli indici delle tuple in data
      * @return numero double che rappresenta la distanza media tra le tuple
