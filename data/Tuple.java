@@ -1,4 +1,7 @@
 package data;
+
+import java.util.Set;
+
 /**
  * Classe concreta che rappresenta una tupla come sequenza di coppie attributo-valore.
  */
@@ -73,20 +76,19 @@ public class Tuple {
     /**
      * restituisce la media delle distanze tra la tupla corrente e quelle ottenibili dalle righe della matrice in data aventi indice  in clusteredData.
      * @param data {@code Data} da cui prelevare le tuple da confrontare
-     * @param clusteredData array di interi che rappresenta gli indici delle tuple in data
+     * @param clusteredData {@code Set<Tuple>} che rappresenta gli indici delle tuple in data
      * @return numero double che rappresenta la distanza media tra le tuple
      */
-    public double avgDistance(Data data, int[] clusteredData)
+    public double avgDistance(Data data, Set<Tuple> clusteredData)
     { 
         double p = 0.0, sumD = 0.0; 
-
-        for (int i = 0; i < clusteredData.length; i++)
-        { 
-            double d = getDistance(data.getItemSet(clusteredData[i])); 
-            sumD += d; 
+        for (Tuple t : clusteredData)
+        {
+            double d = getDistance(t); 
+            sumD += d;
         } 
 
-        p = sumD / clusteredData.length; 
+        p = sumD / clusteredData.size(); 
         return p;
     }
 }

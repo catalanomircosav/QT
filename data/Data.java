@@ -156,15 +156,20 @@ public class Data
      * @param index intero che corrisponde alla riga del dataset
      * @return oggetto {@code Tuple} con un coppia modellata
      */
-    public Tuple getItemSet(int index)
-    { 
+    public Tuple getItemSet(int index) { 
         Tuple tuple = new Tuple(attributeSet.size()); 
 
-        for (int i = 0; i < attributeSet.size(); i++)
-            tuple.add(new DiscreteItem((DiscreteAttribute)attributeSet.get(i),(String)data[index][i]),i); 
+        for (int i = 0; i < attributeSet.size(); i++) {
+            DiscreteAttribute attr = (DiscreteAttribute) attributeSet.get(i);
+
+            String value = (String) data[index][i];
+
+            tuple.add(new DiscreteItem(attr, value), i); 
+        }
 
         return tuple; 
     }
+
 
     /**
      * Verifica se il dataset è vuoto controllando se non contiene esempi 
@@ -175,7 +180,8 @@ public class Data
      * @see EmptyDatasetException
      */
     public void checkIfEmpty() throws EmptyDatasetException {
-        if (numberOfExamples == 0 || data == null)
+        if (numberOfExamples == 0 || data == null) {
             throw new EmptyDatasetException("Il dataset è vuoto. Impossibile eseguire l'operazione.");
+        }
     }
 }
