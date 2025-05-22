@@ -1,23 +1,26 @@
 package mining;
 import data.Data;
+import java.util.TreeSet;
+import java.util.Set;
+import java.util.Iterator;
 
 /**
  * La classe {@link ClusterSet} rappresenta un insieme di cluster.
  * @see Cluster
  */
-public class ClusterSet {
+public class ClusterSet implements Iterable<Cluster> {
 
     /**
      * Array di cluster
      */
-    private Cluster[] C;
+    private Set<Cluster> C;
 
     /**
      * Costruttore che inizializza l'array dei cluster come vuoto.
      */
     ClusterSet()
     {
-        C = new Cluster[0];
+        C = new TreeSet<>();
     }
 
     /**
@@ -26,23 +29,7 @@ public class ClusterSet {
      */
     void add(Cluster c)
     {
-        Cluster temp[] = new Cluster[C.length + 1];
-
-        for(int i = 0; i < C.length; i++)
-            temp[i] = C[i];
-        
-        temp[C.length] = c;
-        C = temp;
-    }
-    
-    /**
-     * Metodo che permette di ottenere un cluster all'indice specificato. 
-     * @param i indice del cluster da restituire
-     * @return il cluster all'indice {@code i}
-     */
-    Cluster get(int i)
-    {
-        return C[i];
+        C.add(c);
     }
 
     /**
@@ -55,9 +42,9 @@ public class ClusterSet {
     {
         StringBuilder str = new StringBuilder();
 
-        for(int i = 0; i < C.length; i++)
-            if(C[i] != null)
-                str.append(i).append(C[i].toString()).append("\n");
+        int i = 1;
+        for(Cluster c : C)
+            str.append(i++).append(": ").append(c.toString()).append("\n");
         
         return str.toString();
     }
@@ -71,12 +58,17 @@ public class ClusterSet {
     public String toString(Data data)
     {
         StringBuilder str = new StringBuilder();
-
-        for(int i = 0; i < C.length; i++) {
-            if(C[i] != null)
-            str.append(i).append(": ").append(C[i].toString(data)).append("\n");
-        }
+        
+        int i = 1;
+        for(Cluster c : C)
+            str.append(i++).append(": ").append(c.toString(data)).append("\n");
         
         return str.toString();
+    }
+
+    @Override
+    public Iterator<Cluster> iterator()
+    {
+        return C.iterator();
     }
 }
