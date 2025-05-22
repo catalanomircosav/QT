@@ -46,7 +46,8 @@ public class DiscreteAttribute extends Attribute implements Iterable<String>
      * @return iteratore sui valori.
      */
     @Override
-    public Iterator<String> iterator() {
+    public Iterator<String> iterator() 
+    {
         return values.iterator();
     }
 

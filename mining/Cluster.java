@@ -1,15 +1,18 @@
 package mining;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import data.Data;
 import data.Tuple;
+
 /**
  * Rappresenta un cluster in uno spazio di tuple, definito da un centroide
  * e da un insieme di identificatori di tuple assegnate a questo cluster.
  */
-public class Cluster {
+public class Cluster implements Iterable<Integer>, Comparable<Cluster>
+{
     
     /**
      * Il centroide del cluster, rappresentato come una {@link Tuple}.
@@ -79,11 +82,10 @@ public class Cluster {
     }
 
     /**
-     * Fornisce un array di interi contenente tutti gli identificatori delle tuple
-     * assegnate a questo cluster.
-     * @return array di {@code int} con gli ID delle tuple clusterizzate
+     * Restituisce un array di interi contenente gli identificatori delle tuple assegnate a questo cluster.
+     * @return array di {@code int} contenente gli ID delle tuple appartenenti al cluster
      */
-    int[] iterator()
+    public int[] toArray() 
     {
         return clusteredData.stream().mapToInt(Integer::intValue).toArray();
     }
@@ -119,21 +121,23 @@ public class Cluster {
     public String toString(Data data) {
         StringBuilder str = new StringBuilder();
 
+        // Descrizione del centroide
         str.append("Centroid = (");
         for (int i = 0; i < centroid.getLength(); i++)
             str.append(centroid.get(i)).append("  ");
         str.append(")\nExamples:\n");
         
-        int[] array = clusteredData.stream().mapToInt(Integer::intValue).toArray();
+        // Dettagli degli esempi
         Set<Tuple> tupleset = new HashSet<>();
 
-        for (int i = 0; i < array.length; i++) {
+        for (Integer id : clusteredData) 
+        {
             str.append("[");
             for (int j = 0; j < data.getNumberOfAttributes(); j++) {
-                str.append(data.getValue(array[i], j)).append(" ");
+                str.append(data.getValue(id, j)).append(" ");
             }
 
-            Tuple t = data.getItemSet(array[i]);
+            Tuple t = data.getItemSet(id);
             tupleset.add(t);
 
             double dist = getCentroid().getDistance(t);
@@ -144,5 +148,26 @@ public class Cluster {
         str.append("\nAvgDistance = ").append(avgDist);
 
         return str.toString();
+    }
+
+    /**
+    Fornisce un iteratore per scorrere gli ID delle tuple nel cluster.
+    @return iteratore sugli ID.
+    */
+    @Override
+    public Iterator<Integer> iterator() 
+    {
+        return clusteredData.iterator();
+    }
+
+    /**
+    Confronta due cluster in base alla popolosità (numero di elementi).
+    @param otherCluster cluster da confrontare
+    @return -1 se questo cluster è meno popoloso, +1 se più popoloso
+    */
+    @Override
+    public int compareTo(Cluster otherCluster) 
+    {
+        return Integer.compare(this.getSize(), otherCluster.getSize());
     }
 }
