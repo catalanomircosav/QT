@@ -32,21 +32,21 @@ public class Data
     {
         data = new Object[14][5];
 
-        data[0] = new Object[] { "sunny", "hot", "high", "weak", "no" };
-        data[1] = new Object[] { "sunny", "hot", "high", "strong", "no" };
-        data[2] = new Object[] { "overcast", "hot", "high", "weak", "yes" };
-        data[3] = new Object[] { "rain", "mild", "high", "weak", "yes" };
-        data[4] = new Object[] { "rain", "cool", "normal", "weak", "yes" };
-        data[5] = new Object[] { "rain", "cool", "normal", "strong", "no" };
-        data[6] = new Object[] { "overcast", "cool", "normal", "strong", "yes" };
-        data[7] = new Object[] { "sunny", "mild", "high", "weak", "no" };
-        data[8] = new Object[] { "sunny", "cool", "normal", "weak", "yes" };
-        data[9] = new Object[] { "rain", "mild", "normal", "weak", "yes" };
-        data[10] = new Object[] { "sunny", "mild", "normal", "strong", "yes" };
-        data[11] = new Object[] { "overcast", "mild", "high", "strong", "yes" };
-        data[12] = new Object[] { "overcast", "hot", "normal", "weak", "yes" };
-        data[13] = new Object[] { "rain", "mild", "high", "strong", "no" };
-
+         data[0] = new Object[] {   "sunny",       Double.valueOf(30.3),    "high",     "weak",     "no"    };
+         data[1] = new Object[] {   "sunny",       Double.valueOf(30.3),    "high",     "strong",   "no"    };
+         data[2] = new Object[] {   "overcast",    Double.valueOf(30),      "high",     "weak",     "yes"   };
+         data[3] = new Object[] {   "rain",        Double.valueOf(13),      "high",     "weak",     "yes"   };
+         data[4] = new Object[] {   "rain",        Double.valueOf(0),       "normal",   "weak",     "yes"   };
+         data[5] = new Object[] {   "rain",        Double.valueOf(0),       "normal",   "strong",   "no"    };
+         data[6] = new Object[] {   "overcast",    Double.valueOf(0.1),     "normal",   "strong",   "yes"   };
+         data[7] = new Object[] {   "sunny",       Double.valueOf(13),      "high",     "weak",     "no"    };
+         data[8] = new Object[] {   "sunny",       Double.valueOf(0.1),     "normal",   "weak",     "yes"   };
+         data[9] = new Object[] {   "rain",        Double.valueOf(12),      "normal",   "weak",     "yes"   };
+        data[10] = new Object[] {   "sunny",       Double.valueOf(12.5),    "normal",   "strong",   "yes"   };
+        data[11] = new Object[] {   "overcast",    Double.valueOf(12.5),    "high",     "strong",   "yes"   };
+        data[12] = new Object[] {   "overcast",    Double.valueOf(29.21),   "normal",   "weak",     "yes"   };
+        data[13] = new Object[] {   "rain",        Double.valueOf(12.5),    "high",     "strong",   "no"    };
+        
         numberOfExamples = 14;
 
         attributeSet = new LinkedList<>();
@@ -57,11 +57,7 @@ public class Data
         outLookValues[2] = "sunny";
         attributeSet.add(new DiscreteAttribute("Outlook", 0, outLookValues));
 
-        String temperatureValues[] = new String[3];
-        temperatureValues[0] = "cool";
-        temperatureValues[1] = "hot";
-        temperatureValues[2] = "mild";
-        attributeSet.add(new DiscreteAttribute("Temperature", 1, temperatureValues));
+        attributeSet.add(new ContinuousAttribute("Temperature", 1, 3.2, 38.7));
 
         String humidityValues[] = new String[2];
         humidityValues[0] = "high";
@@ -160,11 +156,14 @@ public class Data
         Tuple tuple = new Tuple(attributeSet.size()); 
 
         for (int i = 0; i < attributeSet.size(); i++) {
-            DiscreteAttribute attr = (DiscreteAttribute) attributeSet.get(i);
+            Attribute attr = attributeSet.get(i);
+            Object value = data[index][i];
 
-            String value = (String) data[index][i];
+            if(attr instanceof DiscreteAttribute)
+                tuple.add(new DiscreteItem((DiscreteAttribute) attr, (String) value), i);
+            else
+                tuple.add(new ContinuousItem((ContinuousAttribute) attr, (Double) value), i);
 
-            tuple.add(new DiscreteItem(attr, value), i); 
         }
 
         return tuple; 
