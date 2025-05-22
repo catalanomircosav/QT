@@ -1,9 +1,11 @@
 package mining;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import data.Data;
 import data.Tuple;
 import utility.ArraySet;
-
 /**
  * Rappresenta un cluster in uno spazio di tuple, definito da un centroide
  * e da un insieme di identificatori di tuple assegnate a questo cluster.
@@ -115,27 +117,31 @@ public class Cluster {
      * @param data l'oggetto {@link Data} da cui recuperare i valori delle tuple
      * @return stringa formattata con centroide, esempi e distanza media
      */
-    public String toString(Data data)
-    {
+    public String toString(Data data) {
         StringBuilder str = new StringBuilder();
 
         str.append("Centroid = (");
         for (int i = 0; i < centroid.getLength(); i++)
             str.append(centroid.get(i)).append("  ");
         str.append(")\nExamples:\n");
-
+        
         int[] array = clusteredData.toArray();
-        for (int i = 0; i < array.length; i++)
-        {
-            str.append("[");
-            for (int j = 0; j < data.getNumberOfAttributes(); j++)
-                str.append(data.getValue(array[i], j)).append(" ");
+        Set<Tuple> tupleset = new HashSet<>();
 
-            double dist = getCentroid().getDistance(data.getItemSet(array[i]));
+        for (int i = 0; i < array.length; i++) {
+            str.append("[");
+            for (int j = 0; j < data.getNumberOfAttributes(); j++) {
+                str.append(data.getValue(array[i], j)).append(" ");
+            }
+
+            Tuple t = data.getItemSet(array[i]);
+            tupleset.add(t);
+
+            double dist = getCentroid().getDistance(t);
             str.append("] dist = ").append(dist).append("\n");
         }
 
-        double avgDist = getCentroid().avgDistance(data, array);
+        double avgDist = getCentroid().avgDistance(data, tupleset);
         str.append("\nAvgDistance = ").append(avgDist);
 
         return str.toString();
